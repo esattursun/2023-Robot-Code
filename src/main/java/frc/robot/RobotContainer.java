@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.elevator_command;
+import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.Elevator_oto_command;
 import frc.robot.commands.Intake_oto_command;
 import frc.robot.commands.Intakeln;
@@ -47,6 +48,8 @@ public class RobotContainer {
         ()-> m_gamepad.getRawAxis(1)));
         intake.setDefaultCommand(new Intakeln(intake, 
         ()-> -m_gamepad.getRawAxis(5)));
+
+        drivetrain.setDefaultCommand(new DriveWithJoysticks(drivetrain, poseEstimation, m_gamepad));
     }
 /* 
         m_robotDrive.setDefaultCommand(
